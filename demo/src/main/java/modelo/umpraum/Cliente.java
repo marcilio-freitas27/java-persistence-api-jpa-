@@ -1,5 +1,6 @@
 package modelo.umpraum;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,7 +20,7 @@ public class Cliente {
 
 
     // primeiro o assento pra depois colocar o cliente
-    @OneToOne
+    @OneToOne(cascade = CascadeType.PERSIST)
     // confirma junção de tabelas
     // unique garante que o valor da tabela sempre será único
     @JoinColumn(name = "assento_id", unique = true)

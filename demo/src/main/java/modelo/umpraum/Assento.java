@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -14,6 +15,10 @@ public class Assento {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String assento;
+
+    //relação bidirecional
+    @OneToOne(mappedBy = "assento")
+    private Cliente cliente;
 
     public Assento() {
     }
@@ -33,6 +38,14 @@ public class Assento {
     }
     public void setAssento(String assento) {
         this.assento = assento;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
     
 }
