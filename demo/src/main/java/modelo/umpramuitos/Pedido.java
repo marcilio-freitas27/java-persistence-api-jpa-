@@ -1,12 +1,14 @@
 package modelo.umpramuitos;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -18,6 +20,10 @@ public class Pedido {
     private Long id;
     @Column(nullable = false)
     private Date data;
+
+    //mapeia com o atributo que realmente faz a relação entre um obj e outro
+    @OneToMany(mappedBy = "pedido")
+    private List<ItemPedido> itens;
 
     // pega a data atual
     public Pedido() {
@@ -39,6 +45,14 @@ public class Pedido {
     }
     public void setData(Date data) {
         this.data = data;
+    }
+
+    public List<ItemPedido> getItens() {
+        return itens;
+    }
+
+    public void setItens(List<ItemPedido> itens) {
+        this.itens = itens;
     }
 
 }
