@@ -10,6 +10,7 @@ public class ObterPedido {
         
         DAO<Pedido> dao = new DAO<>(Pedido.class);
 
+        
         Pedido pedido = dao.obterPorId(1L);
 
         for (ItemPedido item : pedido.getItens()) {
