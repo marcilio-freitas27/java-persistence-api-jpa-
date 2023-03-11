@@ -10,47 +10,32 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
 @Entity
-public class Sobrinho {
+public class Filme {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String nome;
+    @ManyToMany
+    private List<Ator> ator = new ArrayList<Ator>();
 
-    @ManyToMany(mappedBy = "sobrinho")
-    private List<Tio> tio = new ArrayList<Tio>();
+    public Filme() {
 
-
-    public Sobrinho(String nome) {
+    }
+    
+    public Filme(String nome) {
         this.nome = nome;
     }
-
-    public Sobrinho() {
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public String getNome() {
         return nome;
     }
-
     public void setNome(String nome) {
         this.nome = nome;
     }
-
-    public List<Tio> getTio() {
-        return tio;
+    public List<Ator> getAtor() {
+        return ator;
     }
-
-    public void setTio(List<Tio> tio) {
-        this.tio = tio;
+    public void setAtor(List<Ator> ator) {
+        this.ator = ator;
     }
-
 }
