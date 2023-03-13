@@ -14,11 +14,11 @@ public class RemoverAtorSobrinho {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("demo");
         EntityManager em = emf.createEntityManager();
 
-        Ator ator1 = em.find(Ator.class, 1L);
-        Ator ator2 = em.find(Ator.class, 2L);
+        Ator ator1 = em.find(Ator.class, 3L);
+        Ator ator2 = em.find(Ator.class, 4L);
 
-        Filme filme1 = em.find(Filme.class, 1L);
-        Filme filme2 = em.find(Filme.class, 2L);
+        Filme filme1 = em.find(Filme.class, 3L);
+        Filme filme2 = em.find(Filme.class, 4L);
 
         Object[] filmeAtor = {ator1, ator2, filme1, filme2};
 

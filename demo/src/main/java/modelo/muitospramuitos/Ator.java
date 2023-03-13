@@ -8,8 +8,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "atores")
 public class Ator {
     
     @Id
@@ -17,7 +19,7 @@ public class Ator {
     private Long id;
     private String nome;
     @ManyToMany(mappedBy = "ator")
-    private List<Filme> filme = new ArrayList<Filme>();;
+    private List<Filme> filmes = new ArrayList<>();
 
     
     public Ator() {
@@ -32,9 +34,18 @@ public class Ator {
         this.nome = nome;
     }
     public List<Filme> getFilme() {
-        return filme;
+        return filmes;
     }
     public void setFilme(List<Filme> filme) {
-        this.filme = filme;
+        this.filmes = filme;
     }
+
+    // public void adicionarAtor(Ator ator){
+    //     if (ator != null && !getAtor().contains(ator)) {
+    //         getAtor().add(ator);
+    //         if (!ator.getFilme().contains(this)) {
+    //             ator.getFilme().add(this);
+    //         }
+    //     }
+    // }
 }
