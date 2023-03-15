@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings name="obterFilmesNotaMaiorQue">
+    <named-query>
+        <query>
+        <!-- jpql -->
+            SELECT f FROM Filme f
+            JOIN FETCH f.atores
+            WHERE f.nota > :nota
+        </query>
+    </named-query>
+
+</entity-mappings>
