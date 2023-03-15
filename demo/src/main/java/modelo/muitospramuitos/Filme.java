@@ -3,6 +3,7 @@ package modelo.muitospramuitos;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,7 +21,7 @@ public class Filme {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.PERSIST)
     // padronizar nome da tabela de relacionamento - mapeamento
     @JoinTable(
         name = "atores_filmes",
@@ -28,13 +29,23 @@ public class Filme {
         inverseJoinColumns = @JoinColumn(name = "ator_id", referencedColumnName = "id")
     )
     private List<Ator> atores = new ArrayList<>();
+    private Double nota;
+
+    public Double getNota() {
+        return nota;
+    }
+
+    public void setNota(Double nota) {
+        this.nota = nota;
+    }
 
     public Filme() {
 
     }
     
-    public Filme(String nome) {
+    public Filme(String nome, Double nota) {
         this.nome = nome;
+        this.nota = nota;
     }
     public String getNome() {
         return nome;
