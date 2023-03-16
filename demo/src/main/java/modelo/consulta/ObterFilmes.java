@@ -1,4 +1,4 @@
-package teste.consulta;
+package modelo.consulta;
 
 import java.util.List;
 
