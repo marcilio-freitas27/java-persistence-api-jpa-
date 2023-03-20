@@ -26,6 +26,9 @@
         
         <class>modelo.basico.Usuario</class>
         <class>modelo.basico.Produto</class>
+        <class>modelo.heranca.Pessoa</class>
+        <class>modelo.heranca.PessoaFisica</class>
+        <class>modelo.heranca.PessoaJuridica</class>
         <class>modelo.umpraum.Assento</class>
         <class>modelo.umpraum.Cliente</class>
         <class>modelo.umpramuitos.Pedido</class>
