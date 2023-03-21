@@ -15,12 +15,12 @@ import javax.persistence.InheritanceType;
 
 @Entity
 // herança - tabela simples ou tabela com todos os dados
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@Inheritance(strategy = InheritanceType.JOINED)
 // Diz qual o descriminador, seu tamanho e tipo
-@DiscriminatorColumn(name = "tipo", length = 1, discriminatorType = DiscriminatorType.STRING)
+@DiscriminatorColumn(name = "tipo", length = 2, discriminatorType = DiscriminatorType.STRING)
 // Diz qual quando o descriminador é identificado, no caso será o P de pessoa
 @DiscriminatorValue("P")
-public class Pessoa implements Serializable{
+public class Pessoa{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,4 +28,36 @@ public class Pessoa implements Serializable{
     private String nome;
     @Column(insertable = false, updatable = false)
     private String tipo;
+
+    public Pessoa(Long id) {
+       this.id = id;
+    }
+    
+    public Pessoa() {
+       
+    }
+
+    public Pessoa(Long id, String nome, String tipo) {
+        this.id = id;
+        this.nome = nome;
+        this.tipo = tipo;
+    }
+    public Long getId() {
+        return id;
+    }
+    public void setId(Long id) {
+        this.id = id;
+    }
+    public String getNome() {
+        return nome;
+    }
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+    public String getTipo() {
+        return tipo;
+    }
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
 }
